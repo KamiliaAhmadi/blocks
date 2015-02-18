@@ -36,8 +36,8 @@ import pt314.blocks.game.VerticalBlock;
  */
 public class SimpleGUI extends JFrame implements ActionListener {
     
-    public static int NUM_ROWS;
-    public static int NUM_COLS;
+    private static int NUM_ROWS;
+    private static int NUM_COLS;
     
     private static String puzzlePath;
     
@@ -191,6 +191,16 @@ public class SimpleGUI extends JFrame implements ActionListener {
         updateUI();
     }
     
+    
+    public static int getNumRows()
+    {
+        return NUM_ROWS;
+    }
+    
+    public static int getNumCols()
+    {
+        return NUM_COLS;
+    }
     // Update display based on the state of the board...
     // TODO: make this more efficient
     private void updateUI() {

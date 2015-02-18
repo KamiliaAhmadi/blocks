@@ -28,8 +28,8 @@ public class AllTests {
     private int numCols;
     @Before
     public void setUp() throws FileNotFoundException, IOException {
-        numRows=SimpleGUI.NUM_ROWS;
-        numCols=SimpleGUI.NUM_COLS;
+        numRows=SimpleGUI.getNumRows();
+        numCols=SimpleGUI.getNumCols();
         gameBoard=new GameBoard(numCols, numRows);
     }
     
