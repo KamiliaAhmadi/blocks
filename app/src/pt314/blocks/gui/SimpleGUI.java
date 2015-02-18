@@ -39,6 +39,8 @@ public class SimpleGUI extends JFrame implements ActionListener {
     public static int NUM_ROWS;
     public static int NUM_COLS;
     
+    private static String puzzlePath;
+    
     private GameBoard board;
     
     // currently selected block
@@ -56,11 +58,9 @@ public class SimpleGUI extends JFrame implements ActionListener {
     
     public SimpleGUI() throws IOException {
         super("Blocks");
-        
+        puzzlePath="C://Users//Kam//Documents//blocks//app//res//puzzles//puzzle-003.txt";
         initMenus();
-        
         initBoard();
-        
         pack();
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -83,8 +83,6 @@ public class SimpleGUI extends JFrame implements ActionListener {
                    
                     initMenus();
                     initBoard();
-//                     revalidate();
-//                    repaint();
                     pack();
                     setVisible(true);
                     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -120,7 +118,9 @@ public class SimpleGUI extends JFrame implements ActionListener {
     }
     
     private void initBoard() throws FileNotFoundException, IOException {
-        BufferedReader br = new BufferedReader(new FileReader("C://Users//Kam//Documents//blocks//app//res//puzzles//puzzle-004.txt"));
+        
+        //Loading Puzzle's dimensions form file in puzzlePath
+        BufferedReader br = new BufferedReader(new FileReader(puzzlePath));
         String line = br.readLine();
         line=line.trim();
         String[] firstLineSplitted=line .split(" ");
@@ -140,6 +140,8 @@ public class SimpleGUI extends JFrame implements ActionListener {
             return;
             //throw new IllegalArgumentException();
         }
+        
+        //Removing path buttonGrid in order to create new puzzle grid.
         if(buttonGrid!=null)
         for (int row = 0; row < buttonGrid.length; row++) {
             for (int col = 0; col < buttonGrid[0].length; col++)
@@ -148,9 +150,9 @@ public class SimpleGUI extends JFrame implements ActionListener {
             }
         }
         
+        //Creating new boad and button grid
         board = new GameBoard(NUM_COLS, NUM_ROWS);
         buttonGrid = new GridButton[NUM_ROWS][NUM_COLS];
-        
         setLayout(new GridLayout(NUM_ROWS, NUM_COLS));
         GridButton cell=null ;
         for (int row = 0; row < NUM_ROWS; row++) {
@@ -163,6 +165,8 @@ public class SimpleGUI extends JFrame implements ActionListener {
                 add(cell);
             }
         }
+        
+        //Loading puzzle contents
         ArrayList<String> puzzleContent=new ArrayList<String>();
         line= br.readLine();
         while(line!=null)
@@ -172,6 +176,8 @@ public class SimpleGUI extends JFrame implements ActionListener {
             line= br.readLine();
         }
         
+        
+        //Creating different blocks Horizontal, Vertical, Target blocks
         for(int i=0;i<NUM_ROWS;i++)
             for(int j=0;j<NUM_COLS;j++)
             {
