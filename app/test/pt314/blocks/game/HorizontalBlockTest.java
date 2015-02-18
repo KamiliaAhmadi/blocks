@@ -10,8 +10,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import pt314.blocks.gui.SimpleGUI;
-import static pt314.blocks.gui.SimpleGUI.NUM_COLS;
-import static pt314.blocks.gui.SimpleGUI.NUM_ROWS;
 
 /**
  * JUnit tests for <code>HorizontalBlock</code>.
