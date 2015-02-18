@@ -21,6 +21,15 @@ public class GameBoard {
 		blocks[row][col] = block;
 	}
 	
+        public int getGameBoardWidth()
+        {
+            return this.width;
+        }
+        
+        public int getGameBoardHeight()
+        {
+            return this.height;
+        }
 	// TODO: Check for out of bounds
 	public Block getBlockAt(int row, int col) {
 		return blocks[row][col];

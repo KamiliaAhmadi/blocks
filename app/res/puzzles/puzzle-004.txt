@@ -1,0 +1,9 @@
+8 10
+VHHHH...HV
+V...VHH...
+H.V.VT....
+V...V..HH.
+VHHHH....H
+V...H...V.
+V.VHH...H.
+VVV.....HH
